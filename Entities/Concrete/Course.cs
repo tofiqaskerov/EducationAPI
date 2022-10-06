@@ -14,9 +14,17 @@ namespace Entities.Concrete
     public class Course : IEntity
     {
         [BsonId]
-        [BsonRepresentation(BsonType.String)]
-        public ObjectId _id;
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string _id;
         public string Name { get; set; }
         public string Description { get; set; }
+        public string PhotoUrl { get; set; }
+        public string UserId { get; set; }
+        public decimal Raiting { get; set; }
+        public decimal Duration { get; set; }
+        public decimal Price { get; set; }
+        [BsonElement("courses_category")]
+        public string CategoryId { get; set; }
+        public List<CourseContent> CourseContents { get; set; }
     }
 }

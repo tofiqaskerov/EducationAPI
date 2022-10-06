@@ -23,7 +23,7 @@ namespace Core.DataAccess.MongoDb
         }
         public MongoEntityRepositoryBase()
         {
-            var database = new MongoClient("").GetDatabase("education");
+            var database = new MongoClient("mongodb://localhost:27017").GetDatabase("education");
             _collection = database.GetCollection<TDocument>(GetCollectionName(typeof(TDocument)));
         }
 
@@ -44,7 +44,10 @@ namespace Core.DataAccess.MongoDb
 
         public List<TDocument> GetAll(Expression<Func<TDocument, bool>> filter = null)
         {
-            return _collection.Find(filter).ToList();
+            return filter == null
+                ?  _collection.Find(x => true).ToList()
+                :  _collection.Find(filter).ToList();
+
         }
 
         public void Update(TDocument entity)

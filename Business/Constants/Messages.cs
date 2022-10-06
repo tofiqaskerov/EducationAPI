@@ -13,5 +13,7 @@ namespace Business.Constants
         public static string UserNotFound = "User not found.";
         public static string EmailOrPassword = "Email or password is not correct.";
         public static string CourseSuccessAdd = "Course is added.";
+        public static string CoursesListNotFound = "No courses found.";
+        public static string CourseNotFound = "Course not found.";
     }
 }

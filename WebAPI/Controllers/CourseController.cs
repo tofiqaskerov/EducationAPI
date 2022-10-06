@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace WebAPI.Controllers
 {
@@ -16,6 +17,23 @@ namespace WebAPI.Controllers
             _courseService = courseService;
         }
 
+        [HttpGet("get/{id}")]
+        public IActionResult Get(string id)
+        {
+            var result = _courseService.GetById(id);
+            if(result.Success)
+                return Ok(new { data = result.Data });
+            return BadRequest(new { message = result.Message });
+        }
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var result = _courseService.GetAll();
+            if(result.Success)
+                return Ok(new { data = result.Data });
+            return BadRequest(new { message = result.Message });
+        }
 
         [HttpPost("addcourse")]
         public IActionResult Add(Course course)

@@ -1,5 +1,6 @@
 ﻿using Core.Helpers.Results.Abstract;
 using Entities.Concrete;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Business.Abstract
     public interface ICourseService
     {
         IResult Add(Course course);
+        IDataResult<List<Course>> GetAll();
+        IDataResult<Course> GetById(string id);
     }
 }
