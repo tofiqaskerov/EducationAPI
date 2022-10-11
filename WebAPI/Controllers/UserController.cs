@@ -16,7 +16,6 @@ namespace WebAPI.Controllers
             _userManager = userManager;
         }
 
-        [Authorize("Admin")]
         [HttpGet("userlist")]
         public IActionResult GetAllUser()
         {

@@ -15,5 +15,6 @@ namespace Business.Constants
         public static string CourseSuccessAdd = "Course is added.";
         public static string CoursesListNotFound = "No courses found.";
         public static string CourseNotFound = "Course not found.";
+        public static string CourseCategorySuccessAdd = "Course category is added.";
     }
 }

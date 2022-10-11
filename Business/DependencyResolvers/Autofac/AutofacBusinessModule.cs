@@ -24,6 +24,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CourseManager>().As<ICourseService>();
             builder.RegisterType<CoureseDal>().As<ICourseDal>();
 
+
+            builder.RegisterType<CourseCategoryManager>().As<ICourseCategoryServices>();
+            builder.RegisterType<CourseCategoryDal>().As<ICourseCategoryDal>();
+
+
         }
     }
 }
