@@ -19,7 +19,7 @@ namespace Entities.Concrete
         public string Name { get; set; }
         public string Description { get; set; }
         public string PhotoUrl { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public decimal Raiting { get; set; }
         public decimal Duration { get; set; }
         public decimal Price { get; set; }

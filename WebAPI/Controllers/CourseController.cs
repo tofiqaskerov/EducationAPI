@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         public IActionResult Get(string id)
         {
             var result = _courseService.GetById(id);
-            if(result.Success)
+            if (result.Success)
                 return Ok(new { data = result.Data });
             return BadRequest(new { message = result.Message });
         }
@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = _courseService.GetAll();
-            if(result.Success)
+            if (result.Success)
                 return Ok(new { data = result.Data });
             return BadRequest(new { message = result.Message });
         }
@@ -41,7 +41,17 @@ namespace WebAPI.Controllers
             var result = _courseService.Add(course);
             if (result.Success)
                 return Ok(new { status = 200, message = result.Message });
-            return BadRequest(new {message = result.Message});
+            return BadRequest(new { message = result.Message });
+        }
+
+
+        [HttpGet("getcoursecontent")]
+        public IActionResult GetCourseContent()
+        {
+            var result = _courseService.GetByCourseId();
+            if(result.Success)
+                return Ok(new { status = 200, data = result.Data });
+            return BadRequest(new { message = result.Message });
         }
     }
 }

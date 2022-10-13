@@ -5,6 +5,7 @@ using Core.Helpers.Results.Concrete.ErrorResults;
 using Core.Helpers.Results.Concrete.SuccessResults;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,19 @@ namespace Business.Concrete
 
         }
 
+        public IDataResult<List<CourseContentDTO>> GetByCourseId()
+        {
+            try
+            {
+                var courseContent = _courseDal.GetCourseContent();
+                return new SuccessDataResult<List<CourseContentDTO>>(courseContent);
+            }
+            catch (Exception e)
+            {
+               return new ErrorDataResult<List<CourseContentDTO>>(e.Message);
+            }
+        }
+
         public IDataResult<Course> GetById(string id)
         {
             try
@@ -63,5 +77,8 @@ namespace Business.Concrete
                 return new ErrorDataResult<Course>(Messages.CourseNotFound);
             }
         }
+   
+    
+    
     }
 }
