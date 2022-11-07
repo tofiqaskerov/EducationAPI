@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.MongoDb
         public List<CourseCategoryDTO> GetContentCategories()
         {
             var database = new MongoClient("mongodb://localhost:27017").GetDatabase("education");
-            var course_category = database.GetCollection<CourseCategory>("courses_category");
+            var course_category = database.GetCollection<CourseCategory>("course_category");
             var res =course_category.Find(x => true).ToList();
             List<CourseCategoryDTO> result = new();
 

@@ -1,6 +1,5 @@
 ﻿using Core.DataAccess;
-using Core.Entities.Concrete;
-using Entities.DTOs;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IUserDal: IEntityRepositoryBase<User>
+    public interface IAboutDal : IEntityRepositoryBase<About>
     {
-        List<UserListDTO> GetAllUsers();
-        UserListDTO GetById(int id);
+        About GetFirstAbout();
     }
 }

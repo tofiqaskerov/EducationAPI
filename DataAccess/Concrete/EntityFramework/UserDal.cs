@@ -26,5 +26,20 @@ namespace DataAccess.Concrete.EntityFramework
                 return users;
             };
         }
+
+        public UserListDTO GetById(int id)
+        {
+            using (var _context = new AppDbContext())
+            {
+                UserListDTO user = _context.Users.Select(x => new UserListDTO
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Surname = x.Surname,
+                    Email = x.Email
+                }).FirstOrDefault(x =>x.Id == id);
+                return user;
+            };
+        }
     }
 }

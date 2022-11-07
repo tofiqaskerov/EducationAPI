@@ -1,21 +1,21 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using Core.DataAccess.MongoDb.MongoSettings;
+using Core.Entities;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.DataAccess.MongoDb.MongoSettings;
-using Core.Entities;
 
 namespace Entities.Concrete
 {
-    [BsonCollection("course_category")]
-    public class CourseCategory : IEntity
+    [BsonCollection("about")]
+    public class About : IEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id;
-        public string CategoryName { get; set; }
+        public string Description { get; set; }
     }
 }
